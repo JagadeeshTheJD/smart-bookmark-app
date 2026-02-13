@@ -13,18 +13,22 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-black text-white">
-      <div className="bg-white text-black p-8 rounded-lg shadow-md text-center w-80">
-        <h1 className="text-2xl font-bold mb-6">
-          Smart Bookmark App
+    <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center px-6">
+      <div className="w-full max-w-md bg-slate-900 border border-slate-800 p-8 rounded-xl shadow-lg">
+        <h1 className="text-2xl font-semibold mb-6 text-center">
+          Sign in to Smart Bookmark
         </h1>
 
         <button
           onClick={handleLogin}
-          className="bg-black text-white px-6 py-3 rounded-lg w-full hover:opacity-80 transition"
+          className="w-full bg-indigo-600 hover:bg-indigo-500 py-3 rounded-lg font-medium transition"
         >
-          Sign in with Google
+          Continue with Google
         </button>
+
+        <p className="text-slate-500 text-sm text-center mt-6">
+          Secure authentication powered by Google OAuth.
+        </p>
       </div>
     </div>
   );

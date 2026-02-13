@@ -2,18 +2,19 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-black text-white">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">
-          Smart Bookmark App
+    <div className="min-h-screen bg-slate-950 text-white flex items-center justify-center px-6">
+      <div className="max-w-xl text-center">
+        <h1 className="text-4xl font-bold mb-4 tracking-tight">
+          Smart Bookmark
         </h1>
-        <p className="mb-8 text-gray-400">
-          Save and manage your bookmarks privately.
+
+        <p className="text-slate-400 mb-8">
+          A private, real-time bookmark manager built with Next.js and Supabase.
         </p>
 
         <Link
           href="/login"
-          className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:opacity-80 transition"
+          className="inline-block bg-indigo-600 hover:bg-indigo-500 px-6 py-3 rounded-lg font-semibold transition"
         >
           Get Started
         </Link>
