@@ -109,10 +109,14 @@ This is implemented using Supabase `channel()` subscriptions.
 ## 🧩 Application Structure
 
 app/
+
 ├── page.tsx → Landing page
+
 ├── login/page.tsx → Google OAuth login
+
 ├── dashboard/page.tsx → Protected dashboard
 lib/
+
 ├── supabaseClient.ts → Supabase initialization
 
 
@@ -139,6 +143,7 @@ Design philosophy: clean, production-ready, not over-designed.
 The following environment variables are required:
 
 NEXT_PUBLIC_SUPABASE_URL=
+
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 
 
