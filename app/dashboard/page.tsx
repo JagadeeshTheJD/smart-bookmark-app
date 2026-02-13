@@ -25,20 +25,46 @@ export default function DashboardPage() {
   };
 
   useEffect(() => {
-    const getUser = async () => {
-      const { data, error } = await supabase.auth.getUser();
+    let channel: any;
 
-      if (error || !data?.user) {
+    const init = async () => {
+        const { data, error } = await supabase.auth.getUser();
+
+        if (error || !data?.user) {
         router.push("/login");
-      } else {
+        return;
+        }
+
         setUser(data.user);
         await fetchBookmarks();
         setLoading(false);
-      }
+
+        // Realtime subscription
+        channel = supabase
+        .channel("bookmarks-realtime")
+        .on(
+            "postgres_changes",
+            {
+            event: "*",
+            schema: "public",
+            table: "bookmarks",
+            },
+            () => {
+            fetchBookmarks();
+            }
+        )
+        .subscribe();
     };
 
-    getUser();
-  }, [router]);
+    init();
+
+    return () => {
+        if (channel) {
+        supabase.removeChannel(channel);
+        }
+    };
+    }, [router]);
+
 
   const handleAddBookmark = async (e: React.FormEvent) => {
     e.preventDefault();
